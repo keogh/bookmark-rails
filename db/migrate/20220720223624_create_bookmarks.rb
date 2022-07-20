@@ -4,7 +4,7 @@ class CreateBookmarks < ActiveRecord::Migration[7.0]
       t.text :url
       t.string :title
       t.text :description
-      t.boolean :private
+      t.boolean :is_private
       t.boolean :read_later
 
       t.timestamps
