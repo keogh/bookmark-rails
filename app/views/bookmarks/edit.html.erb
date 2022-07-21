@@ -1,0 +1,9 @@
+<main>
+  <%= link_to sanitize("&larr; Back to bookmark"), bookmark_path(@bookmark) %>
+
+  <div>
+    <h1>Edit bookmark</h1>
+  </div>
+
+  <%= render "form", bookmark: @bookmark %>
+</main>

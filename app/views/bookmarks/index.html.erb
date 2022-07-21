@@ -1,0 +1,13 @@
+<main>
+  <div>
+    <h1>
+      Bookmarks
+    </h1>
+
+    <%= link_to "New bookmark",
+                new_bookmark_path,
+                class: "" %>
+  </div>
+
+  <%= render @bookmarks %>
+</main>
