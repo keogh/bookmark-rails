@@ -1,32 +1,34 @@
-<div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
-  <div class="px-4 py-5 sm:p6">
-    <div>
-      <%= link_to bookmark.title, bookmark.url %>
+<%= turbo_frame_tag bookmark do %>
+  <div class="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200">
+    <div class="px-4 py-5 sm:p6">
+      <div>
+        <%= link_to bookmark.title, bookmark.url %>
+      </div>
+      <div>
+        <%= bookmark.url %>
+      </div>
+      <div>
+        <%= bookmark.description %>
+      </div>
+      <div>
+        <%= bookmark.is_private ? 'Private' : 'Public' %>
+      </div>
+      <%- if bookmark.read_later.present? %>
+        <div>Read Later</div>
+      <%- end %>
     </div>
-    <div>
-      <%= bookmark.url %>
+    <div class="px-4 py-4 sm:p6 flex justify-space-between">
+      <div>
+        <%= link_to "Edit",
+                      edit_bookmark_path(bookmark),
+                      class: "" %>
+      </div>
+      <div>
+        <%= button_to "Delete",
+                        bookmark_path(bookmark),
+                        method: :delete,
+                        class: "ml-3" %>
+      </div>
     </div>
-    <div>
-      <%= bookmark.description %>
-    </div>
-    <div>
-      <%= bookmark.is_private ? 'Private' : 'Public' %>
-    </div>
-    <%- if bookmark.read_later.present? %>
-      <div>Read Later</div>
-    <%- end %>
   </div>
-  <div class="px-4 py-4 sm:p6 flex justify-space-between">
-    <div>
-      <%= link_to "Edit",
-                    edit_bookmark_path(bookmark),
-                    class: "" %>
-    </div>
-    <div>
-      <%= button_to "Delete",
-                      bookmark_path(bookmark),
-                      method: :delete,
-                      class: "ml-3" %>
-    </div>
-  </div>
-</div>
+<% end %>

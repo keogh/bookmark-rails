@@ -5,5 +5,7 @@
     <h1>Edit bookmark</h1>
   </div>
 
-  <%= render "form", bookmark: @bookmark %>
+  <%= turbo_frame_tag @bookmark do %>
+    <%= render "form", bookmark: @bookmark %>
+  <% end %>
 </main>
