@@ -7,9 +7,9 @@
 
   <%= f.input :url, input_html: { autofocus: true } %>
   <%= f.input :title %>
-  <%= f.texarea :description %>
-  <%= f.checkbox :is_private %>
-  <%= f.checkbox :read_later %>
+  <%= f.input :description, as: :text %>
+  <%= f.input :is_private, as: :boolean %>
+  <%= f.input :read_later, as: :boolean %>
 
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>

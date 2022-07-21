@@ -1,12 +1,12 @@
 <div>
-  <%= link_to bookmark.name, bookmark_path(bookmark) %>
+  <%= link_to bookmark.title, bookmark_path(bookmark) %>
   <div>
     <%= button_to "Delete",
-                  bookmark_path(quote),
+                  bookmark_path(bookmark),
                   method: :delete,
                   class: "" %>
     <%= link_to "Edit",
-                edit_bookmark_path(quote),
+                edit_bookmark_path(bookmark),
                 class: "" %>
   </div>
 </div>

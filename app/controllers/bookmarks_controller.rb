@@ -34,7 +34,7 @@ class BookmarksController < ApplicationController
   end
 
   def destroy
-    @quote.destroy
+    @bookmark.destroy
     redirect_to bookmarks_path, notice: "Bookmark was successfully destroyed."
   end
 
