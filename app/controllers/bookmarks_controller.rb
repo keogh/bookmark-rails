@@ -18,7 +18,7 @@ class BookmarksController < ApplicationController
     if @bookmark.save
       redirect_to bookmarks_path, notice: "Bookmark was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ class BookmarksController < ApplicationController
     if @bookmark.update(bookmark_params)
       redirect_to bookmarks_path, notice: "Bookmark was successfully updated."
     else
-      render :edit
+      render :edit, , status: :unprocessable_entity
     end
   end
 
