@@ -18,6 +18,7 @@
 }
 
 @layer components {
+  /* Make a function or something to make variatons per color and size */
   .btn-primary {
     @apply inline-flex 
       items-center 
