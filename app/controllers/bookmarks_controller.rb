@@ -16,7 +16,10 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new(bookmark_params)
 
     if @bookmark.save
-      redirect_to bookmarks_path, notice: "Bookmark was successfully created."
+      respond_to do |format|
+        format.html { redirect_to bookmarks_path, notice: "Bookmark was successfully created." }
+        format.turbo_stream
+      end
     else
       render :new, status: :unprocessable_entity
     end

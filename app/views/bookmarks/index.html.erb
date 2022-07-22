@@ -6,8 +6,13 @@
 
     <%= link_to "New bookmark",
                 new_bookmark_path,
-                class: "btn-primary" %>
+                class: "btn-primary",
+                data: { turbo_frame: dom_id(Bookmark.new) } %>
   </div>
 
-  <%= render @bookmarks %>
+  <%= turbo_frame_tag Bookmark.new %>
+  
+  <%= turbo_frame_tag "bookmarks" do %>
+    <%= render @bookmarks %>
+  <% end %>
 </main>
