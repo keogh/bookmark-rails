@@ -1,4 +1,2 @@
-<%= turbo_stream.prepend "bookmarks",
-                  partial: "bookmarks/bookmark", 
-                  locals: { bookmark: @bookmark } %>
+<%= turbo_stream.prepend "bookmarks", @bookmark %>
 <%= turbo_stream.update Bookmark.new, "" %>
