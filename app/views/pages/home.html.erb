@@ -1,0 +1,10 @@
+<main class="container">
+  <h1>Bookmarks</h1>
+  <p>A blazing fast Bookmarks app</p>
+
+  <% if user_signed_in? %>
+    <%= link_to "View bookmarks", quotes_path, class: "btn btn--dark" %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn--dark" %>
+  <% end %>
+</main>
