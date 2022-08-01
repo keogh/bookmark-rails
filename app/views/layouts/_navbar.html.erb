@@ -1,0 +1,12 @@
+<header>
+  <% if user_signed_in? %>
+    <%= button_to "Sign out",
+                  destroy_user_session_path,
+                  method: :delete,
+                  class: "btn" %>
+  <% else %>
+     <%= link_to "Sign in",
+                new_user_session_path,
+                class: "btn-primary" %>
+  <% end %>
+</header>
