@@ -1,16 +1,30 @@
 <%= simple_form_for bookmark, html: { class: "bookmark form" } do |f| %>
-  <% if bookmark.errors.any? %>
-    <div class="error-message">
-      <%= bookmark.errors.full_messages.to_sentence.capitalize %>
+  <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6 divide-y divide-gray-200">
+    <div class="sm:col-span-4">
+      <% if bookmark.errors.any? %>
+        <div class="error-message">
+          <%= bookmark.errors.full_messages.to_sentence.capitalize %>
+        </div>
+      <% end %>
+
+      <div class="grid grid-cols-1 gap-y-6">
+        <%= f.input :url, 
+          as: :string, 
+          input_html: { autofocus: true }
+        %>
+        <%= f.input :title %>
+        <%= f.input :description, as: :text %>
+        <%= f.input :is_private, as: :boolean %>
+        <%= f.input :read_later, as: :boolean %>
+      </div>
+
     </div>
-  <% end %>
 
-  <%= f.input :url, input_html: { autofocus: true } %>
-  <%= f.input :title %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :is_private, as: :boolean %>
-  <%= f.input :read_later, as: :boolean %>
-
-  <%= link_to "Cancel", bookmarks_path %>
-  <%= f.submit class: "btn btn--secondary" %>
+    <div class="sm:col-span-4 pt-5">
+      <div class="flex justify-end">
+        <%= link_to "Cancel", bookmarks_path, class: "btn" %>
+        <%= f.submit class: "ml-3 inline-flex justify-center btn btn-primary" %>
+      </div>
+    </div>
+  </div>
 <% end %>
